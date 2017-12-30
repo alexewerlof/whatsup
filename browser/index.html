@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To Do</title>
+</head>
+<style>
+    button {
+        border: none;
+        background: inherit;
+        padding: 0;
+        cursor: pointer;
+    }
+    button:focus {
+        outline: none;
+    }
+</style>
+<body>
+    <template id="report-item">
+        <li v-bind:title="report.id">
+            {{report.desc}}
+            <button v-on:click="$parent.moveReportUp(index)" title="Move up">🔺</button>
+            <button v-on:click="$parent.moveReportDown(index)" title="Move down">🔻</button>
+            <button v-on:click="$parent.deleteReport(index)" title="Delete">❌</button>
+        </li>
+    </template>
+    <div id="app">
+        <h1>Yo! What's up?</h1>
+        <input v-model="currentReport" @keyup.enter="addReport" />
+        <button v-on:click="addReport" title="Add">➕</button>
+        <ol>
+            <report-item
+                v-for="(report, index) in reports"
+                v-bind:index="index"
+                v-bind:key="report.id"
+                v-bind:report="report"></report-item>
+        </ol>
+
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="index.js"></script>
+</body>
+</html>
