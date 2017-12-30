@@ -1,0 +1,27 @@
+body {
+    font-size: 21px;
+    font-family: "Helvetica", sans-serif;
+    background-color: rgb(255, 196, 0);
+    color: rgb(48, 48, 48);
+}
+button {
+    border: none;
+    background: inherit;
+    padding: 0;
+    cursor: pointer;
+}
+*:focus {
+    outline: none;
+}
+input[type=text] {
+    background-color: inherit;
+    color: inherit;
+    border: none;
+    border-bottom: 2px dashed rgb(104, 98, 83);
+    font: inherit;
+    font-size: inherit;
+}
+
+input[type=text]:focus {
+    border-color: currentColor;
+}
