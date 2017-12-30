@@ -8,7 +8,7 @@
     <title>To Do</title>
 </head>
 <body>
-    <div id="app">
+    <div id="app" v-cloak>
         <h1>Yo! What's up?</h1>
         <ol>
             <report-item inline-template
@@ -17,7 +17,7 @@
                 v-bind:key="report.id"
                 v-bind:report="report">
                 <li v-bind:title="report.id">
-                    {{report.desc}}
+                    <span v-text="report.desc"></span>
                     <button v-on:click="$parent.moveReportUp(index)" title="Move up">🔺</button>
                     <button v-on:click="$parent.moveReportDown(index)" title="Move down">🔻</button>
                     <button v-on:click="$parent.deleteReport(index)" title="Delete">❌</button>
