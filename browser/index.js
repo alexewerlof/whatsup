@@ -2,7 +2,6 @@ const getTemplate = (id) => document.getElementById(id).innerHTML
 const guid = () => Math.round(Math.random() * 10000000)
 
 Vue.component('report-item', {
-	template: getTemplate('report-item'),
     props: ['report', 'index']
 });
 

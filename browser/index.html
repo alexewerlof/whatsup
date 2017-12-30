@@ -8,22 +8,21 @@
     <title>To Do</title>
 </head>
 <body>
-    <template id="report-item">
-        <li v-bind:title="report.id">
-            {{report.desc}}
-            <button v-on:click="$parent.moveReportUp(index)" title="Move up">🔺</button>
-            <button v-on:click="$parent.moveReportDown(index)" title="Move down">🔻</button>
-            <button v-on:click="$parent.deleteReport(index)" title="Delete">❌</button>
-        </li>
-    </template>
     <div id="app">
         <h1>Yo! What's up?</h1>
         <ol>
-            <report-item
+            <report-item inline-template
                 v-for="(report, index) in reports"
                 v-bind:index="index"
                 v-bind:key="report.id"
-                v-bind:report="report"></report-item>
+                v-bind:report="report">
+                <li v-bind:title="report.id">
+                    {{report.desc}}
+                    <button v-on:click="$parent.moveReportUp(index)" title="Move up">🔺</button>
+                    <button v-on:click="$parent.moveReportDown(index)" title="Move down">🔻</button>
+                    <button v-on:click="$parent.deleteReport(index)" title="Delete">❌</button>
+                </li>
+            </report-item>
             <li>
                 <input type="text" v-model="currentReport" @keyup.enter="addReport" autofocus/>
                 <button v-on:click="addReport" title="Add">➕</button>
